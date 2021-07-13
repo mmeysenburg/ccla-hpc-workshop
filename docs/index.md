@@ -6,3 +6,5 @@ subtitle: Do you want to go faster?
 
 This site contains resources to help you write code that runs more
 quickly. 
+
+[Optimizing Python](pages/optiminzing-python-overview/index.html)
