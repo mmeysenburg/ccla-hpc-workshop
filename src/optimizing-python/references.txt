@@ -1,0 +1,3 @@
+https://towardsdatascience.com/optimizing-your-python-code-156d4b8f4a29
+https://www.techbeamers.com/python-code-optimization-tips-tricks/
+https://wiki.python.org/moin/PythonSpeed/PerformanceTips
