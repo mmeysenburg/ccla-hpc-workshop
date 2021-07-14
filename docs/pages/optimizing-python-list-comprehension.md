@@ -25,7 +25,7 @@ use a `for` loop to populate the list, as shown in the following code:
 # n contains number of values to create
 import random
 values = []
-for i in range(n): # part a 
+for i in range(n):                 # part a 
     values.append(random.random()) # part b
 {% endhighlight %}
 
@@ -90,18 +90,24 @@ for each trial.
 
 {: .box-note}
 **Note:** All performance figures in this workshop were obtained on
-a Windows 10 PC with an Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz,
-with 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
+a Windows 10 PC with an Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz
+and 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
 Subsystem for Linux environment. 
 
 Here is a plot showing the runtimes from our trials. 
 
-![Loop vs. comprehension](https://i.imgur.com/SFw3ChO.png)
+![Loop vs. comprehension](../../assets/img/list-comprehension-time.png)
+
+*Speedup* is a measure of how well we have improved the runtime of our code. If 
+T<sub>0</sub> is the time taken by the original code, and T<sub>1</sub> is the
+time taken by the improved code, then speedup is defined as 
+
+![Speedup](../../assets/img/speedup.png)
 
 It is clear from the plot that list comprehension is significantly faster
 than creating the list via a `for` loop! In fact, for the largest list, 
-the list comprehension version is nearly twice as fast as the version that
-uses a `for` loop.
+the list comprehension version provides a speedup of 1.45 compared to 
+the version that uses a `for` loop.
 
 {: .box-warning}
 **Tip:** If you participate in programming competitions, list comprehension
@@ -111,7 +117,38 @@ list, with only one line of code: `nums = [int(x) for x in input().split()]`.
 ## List comprehension with an `if`
 
 We can also use an `if` statement in list comprehension, to filter the elements
-that appear in the new list. 
+that appear in the new list. Suppose, for example, that we have a large list of
+correctly-spelled English words, and that we wish to make a new list containing
+only the words that start with 'Q'. Maybe we are trying to maximize our score
+in a Scrabble game!
+
+Sample 3 is loop-based code to solve this problem. The new wrinkle here
+compared to Sample 1 is that we have an `if` statement in the loop
+that only adds the words starting with 'Q' to the list named `dict`.
+Like we did for Sample 1, we have labeled the three important parts of the 
+code: the loop is `part a`, the if statement is `part b`, and adding
+to the list is done in `part c`. 
+
+{% highlight python linenos %}
+# Sample 3: filtering words with list comprehension
+with open('dictionary.txt', 'r') as inFile:
+    dict = [word[:-1] for word in inFile]
+
+Qs = []
+# make a sublist of only words that start with 'Q'
+for word in dict:        # part a
+    if word[:1] == 'Q':  # part b
+        Qs.append(word)  # part c
+
+print(Qs)
+{% endhighlight %}
+
+When executed, the code behaves as we expect, with output that
+looks like this:
+
+```
+['Q', "Q'S", 'QA', 'QADDAFI', ... 'QUOTING', 'QWERTY', 'QWERTYS']
+```
 
 List comprehension syntax with an `if`:
 
@@ -120,7 +157,7 @@ List comprehension syntax with an `if`:
 ```
 
 {% highlight python linenos %}
-# Sample 3: filtering words with list comprehension
+# Sample 4: filtering words with list comprehension
 with open('dictionary.txt', 'r') as inFile:
     dict = [word[:-1] for word in inFile]
 
@@ -130,11 +167,8 @@ Qs = [word for word in dict if word[:1] == 'Q']
 print(Qs)
 {% endhighlight %}
 
-Sample output:
-
-```
-['Q', "Q'S", 'QA', 'QADDAFI', ... 'QUOTING', 'QWERTY', 'QWERTYS']
-```
+On our test system, creating the 'Q' word list with comprehension
+provided a speedup of 1.32, compared to the for loop version.
 
 ## List comprehension with multiple `for`s
 
