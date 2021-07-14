@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Optimizing Python (Overview)</title>
+
+  
+  <meta name="author" content="Mark M. Meysenburg">
+  
+
+  <meta name="description" content="Need to speed your code? Start here!">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Doane CCLA HPC Workshop" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Doane CCLA HPC Workshop">
+  <meta property="og:title" content="Optimizing Python (Overview)">
+  <meta property="og:description" content="Need to speed your code? Start here!">
+
+  
+  <meta property="og:image" content="http://localhost:4000/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/pages/optimizing-python-overview/">
+  <link rel="canonical" href="http://localhost:4000/pages/optimizing-python-overview/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@MarkMm91416">
+  <meta name="twitter:creator" content="@MarkMm91416">
+
+  <meta property="twitter:title" content="Optimizing Python (Overview)">
+  <meta property="twitter:description" content="Need to speed your code? Start here!">
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">Doane CCLA HPC Workshop</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.doane.edu/center-for-computing-in-the-liberal-arts">Doane CCLA</a>
+                  <a class="dropdown-item" href="https://www.doane.edu/divas-project">Doane DIVAS</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.doane.edu/mark-meysenburg">Author's home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="http://localhost:4000/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "Sample blog post", \
+          "category" : "test", \
+          "url"      : "/2020-02-28-test-markdown/", \
+          "date"     : "February 28, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Flake it till you make it", \
+          "category" : "bookstest", \
+          "url"      : "/2020-02-26-flake-it-till-you-make-it/", \
+          "date"     : "February 26, 2020" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Doane CCLA HPC Workshop", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Doane CCLA HPC Workshop", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Optimizing Python (List Comprehension)", \
+          "category" : "page", \
+          "url"      : "/pages/optimizing-python-list-comprehension/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Optimizing Python (Overview)", \
+          "category" : "page", \
+          "url"      : "/pages/optimizing-python-overview/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>Optimizing Python (Overview)</h1>
+          
+            
+              <hr class="small">
+              <span class="page-subheading">Need to speed your code? Start here!</span>
+            
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md " role="main">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <p>If you have running Python code that correctly solves your problem,
+congratulations! That’s most of the battle. If you need to make the
+code do its job faster, then this page is the place to begin.</p>
+
+<p>Unless we take special steps to make it otherwise,
+<a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>
+is an <em>interpreted</em> language, as opposed to languages like 
+<a href="https://en.wikipedia.org/wiki/Fortran">Fortran</a>,
+<a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>,
+or <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a>,
+which are <em>compiled</em> languages. If you want to spend a few minutes, here is 
+an approachable article on the <a href="https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/">difference between interpreted languages and
+compiled languages</a>.</p>
+
+<p>The upshot for us here is that interpreted languages generally run much more 
+slowly than compiled languages. (Java is somewhere in between - Java code is 
+compiled to <em>bytecode</em>, that is executed on a virtual machine that is running 
+on the “bare metal” of your computer.) Accordingly, programs we write in Python may 
+take much, much longer to execute for the same data than the equivalent program 
+written in a compiled language like Fortran or C would.</p>
+
+<p>All is not lost! If we apply some simple optimization techniques to our code, we can
+create Python code that is almost as fast as the compiled equivalent, with the 
+added advantage that we can write in Python instead of one of those harder-to-learn
+languages.</p>
+
+<p>Our biggest bang-for-the-buck, optimization-wise, is to focus on loops. We 
+will take advantage of several Python tips and tricks to speed up our loops,
+or to eliminate them entirely!</p>
+
+<p>Next up: <a href="../optimizing-python-list-comprehension/index.html">Optimizing Python (List Comprehension)</a></p>
+
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:mark.meysenburg@doane.edu" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/mmeysenburg" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/MarkMm91416" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Mark M. Meysenburg
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
