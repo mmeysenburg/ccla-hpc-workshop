@@ -99,7 +99,14 @@ Here is a plot showing the runtimes from our trials.
 ![Loop vs. comprehension](https://i.imgur.com/SFw3ChO.png)
 
 It is clear from the plot that list comprehension is significantly faster
-than creating the list via a `for` loop! 
+than creating the list via a `for` loop! In fact, for the largest list, 
+the list comprehension version is nearly twice as fast as the version that
+uses a `for` loop.
+
+{: .box-warning}
+**Tip:** If you participate in programming competitions, list comprehension
+can be a great way to get all of the numbers on an input line in a single
+list, with only one line of code: `nums = [int(x) for x in input().split()]`.
 
 ## List comprehension with an `if`
 
@@ -108,6 +115,24 @@ List comprehension syntax with an `if`:
 ```python
 [<expression> for <v1> in <seq1> if <condition>]
 ```
+
+{% highlight python linenos %}
+# Sample 3: filtering words with list comprehension
+with open('dictionary.txt', 'r') as inFile:
+    dict = [word[:-1] for word in inFile]
+
+# make a sublist of only words that start with 'Q'
+Qs = [word for word in dict if word[:1] == 'Q']
+
+print(Qs)
+{% endhighlight %}
+
+Sample output:
+
+```
+['Q', "Q'S", 'QA', 'QADDAFI', ... 'QUOTING', 'QWERTY', 'QWERTYS']
+```
+
 ## List comprehension with multiple `for`s
 
 List comprehension syntax with multiple `for`s:
