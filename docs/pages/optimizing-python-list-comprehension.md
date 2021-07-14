@@ -110,6 +110,9 @@ list, with only one line of code: `nums = [int(x) for x in input().split()]`.
 
 ## List comprehension with an `if`
 
+We can also use an `if` statement in list comprehension, to filter the elements
+that appear in the new list. 
+
 List comprehension syntax with an `if`:
 
 ```python
