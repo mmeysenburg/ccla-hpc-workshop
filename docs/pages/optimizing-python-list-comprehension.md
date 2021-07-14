@@ -88,31 +88,19 @@ we executed Sample 1 and Sample 2 for values of `n` ranging from
 1,000,000 to 100,000,000 in increments of 1,000,000, and recorded the runtimes
 for each trial. 
 
-{: .box-note}
-**Note:** All performance figures in this workshop were obtained on
-a Windows 10 PC with an Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz
-and 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
-Subsystem for Linux environment. 
-
-Here is a plot showing the runtimes from our trials. 
+Here is a plot showing the runtimes from our trials, as well as the 
+speedup for each. 
 
 ![Loop vs. comprehension](../../assets/img/list-comprehension-time.png)
 
-*Speedup* is a measure of how well we have improved the runtime of our code. If 
-T<sub>0</sub> is the time taken by the original code, and T<sub>1</sub> is the
-time taken by the improved code, then speedup is defined as 
-
-![Speedup](../../assets/img/speedup.png)
-
 It is clear from the plot that list comprehension is significantly faster
-than creating the list via a `for` loop! In fact, for the largest list, 
-the list comprehension version provides a speedup of 1.45 compared to 
-the version that uses a `for` loop.
+than creating the list via a `for` loop! We have a roughly constant speedup of 
+approximately 1.5 for each of the cases. 
 
 {: .box-warning}
 **Tip:** If you participate in programming competitions, list comprehension
 can be a great way to get all of the numbers on an input line in a single
-list, with only one line of code: `nums = [int(x) for x in input().split()]`.
+list, with only one line of code, like this: `nums = [int(x) for x in input().split()]`.
 
 ## List comprehension with an `if`
 
@@ -150,11 +138,18 @@ looks like this:
 ['Q', "Q'S", 'QA', 'QADDAFI', ... 'QUOTING', 'QWERTY', 'QWERTYS']
 ```
 
-List comprehension syntax with an `if`:
+To use the `if` version of list comprehension, we use this syntax:
 
 ```python
 [<expression> for <v1> in <seq1> if <condition>]
 ```
+
+In this syntax, `<expression>` corresponds to `part c` of Sample 3,
+the `for` loop corresponds to `part a`, and the `if` statement
+corresponds to `part b`. 
+
+Sample 4 shows how we can build the same list in one line of Python
+code, using list comprehension with an `if`. 
 
 {% highlight python linenos %}
 # Sample 4: filtering words with list comprehension
@@ -167,7 +162,8 @@ Qs = [word for word in dict if word[:1] == 'Q']
 print(Qs)
 {% endhighlight %}
 
-On our test system, creating the 'Q' word list with comprehension
+This creates an identical list as Sample 3, and is significantly
+faster. On our test system, creating the 'Q' word list with comprehension
 provided a speedup of 1.32, compared to the for loop version.
 
 ## List comprehension with multiple `for`s
