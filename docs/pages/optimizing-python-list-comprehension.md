@@ -223,27 +223,53 @@ We can have as many `for` portions as we wish, but only one `if`. To illustrate
 how this type of list comprehension works, consider this example, which creates
 a list of two-element tuples, based on two existing lists:
 
-
-
-Sample code showing how list comprehension with multiple `for` statements
-works:
-
+<!---
+-------------------------------------------------------------------------------
+Sample 5 -- nested loops to create tuples
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
+# Sample 5: creating list of tuples with loops
 letters = ['a', 'b', 'c', 'd']
 digits = [1, 2, 3]
 
-values = [(x, y) for x in letters for y in digits]
+values = []
+for x in letters:
+    for y in digits:
+        values.append((x, y))
 
 print(values)
 {% endhighlight %}
 
-Output of the preceding example: 
+This code produces all of the possible tuples of the form (c, d), where c 
+is a character from {'a', 'b', 'c', 'd'} and d is a digit from {1, 2, 3}, as
+seen in its output:
 
 ```
 [('a', 1), ('a', 2), ('a', 3), ('b', 1), ('b', 2), ('b', 3), ('c', 1), ('c', 2), ('c', 3), ('d', 1), ('d', 2), ('d', 3)]
 ```
 
-## Exercise
+We can create the same list of tuples via a list comprehension that uses two `for` statements, 
+as shown in Sample 6.
+
+<!---
+-------------------------------------------------------------------------------
+Sample 6 -- equivalend tuples with list comprehension
+-------------------------------------------------------------------------------
+-->
+{% highlight python linenos %}
+# Sample 6: creating list of tuples with comprehension
+letters = ['a', 'b', 'c', 'd']
+digits = [1, 2, 3]
+
+values = [(x, y) for x in letters for y in digits]
+
+{% endhighlight %}
+
+Now that you have learned about list comprehension, test your understanding
+through the following exercises.
+
+## Exercise 1
 
 Exercise: the code shown below creates a large list of pseudo-random
 numbers in [0, 100000), then uses a `for` loop to create a new list 
