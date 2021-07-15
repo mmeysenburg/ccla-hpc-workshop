@@ -271,11 +271,16 @@ through the following exercises.
 
 ## Exercise 1
 
-Exercise: the code shown below creates a large list of pseudo-random
+The code shown below creates a large list of pseudo-random
 numbers in [0, 100000), then uses a `for` loop to create a new list 
 containing only the even values. Re-write this code to use list 
 comprehension to create the `evenValues` list. 
 
+<!---
+-------------------------------------------------------------------------------
+Exercise 1 -- select only evens from a list
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
 # list creation
 rawValues = [random.randrange(0, 100000) for i in range(100000000)]
@@ -286,3 +291,47 @@ for v in rawValues:
     if v % 2 == 0:
         evenValues.append(v)
 {% endhighlight %}
+
+## Exericse 2
+
+Let us return to the idea of testing the quality of a PRNG. The code
+below is a fragment that ultimately will print out the number of times
+each of the numbers in [1, 10] occurs in a sequence of "randomly"
+generated inteters. Finish the code using list comprehension -- by
+changing *only* the line indicated with the comment. In other words,
+what you write has to be on the right side of the `freq =` assignment.
+**Hint:** use list comprehension to build a list of 1's, one for each 
+time `i` occurs in `data`, and pass that list to the built-in `sum()`
+function. 
+
+<!---
+-------------------------------------------------------------------------------
+Exercise 2 -- list comprehension combined with sum function call
+-------------------------------------------------------------------------------
+-->
+{% highlight python linenos %}
+import random
+
+# create 100,000 randoms in [1, 10]
+data = [random.randrange(1,11) for i in range(100000)]
+
+# view frequency of each value
+for i in range(1, 11):
+    freq = # replace this comment with your code
+    print('{0:3d}:\t{1:d}'.format(i, freq))
+{% endhighlight %}
+
+Your output might look like this:
+
+```
+  1:    9987
+  2:    9940
+  3:    10037
+  4:    10028
+  5:    10002
+  6:    10088
+  7:    9838
+  8:    10002
+  9:    10028
+ 10:    10050
+ ```
