@@ -1,0 +1,11 @@
+python3 built-in-03.py 0
+python3 built-in-03.py 100
+python3 built-in-03.py 200
+python3 built-in-03.py 300
+python3 built-in-03.py 400
+python3 built-in-03.py 500
+python3 built-in-03.py 600
+python3 built-in-03.py 700
+python3 built-in-03.py 800
+python3 built-in-03.py 900
+python3 built-in-03.py 1000
