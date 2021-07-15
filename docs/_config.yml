@@ -14,11 +14,10 @@ author: Mark M. Meysenburg
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Doane CCLA: "https://www.doane.edu/center-for-computing-in-the-liberal-arts"
-    - Doane DIVAS: "https://www.doane.edu/divas-project"
-  Author's home: "https://www.doane.edu/mark-meysenburg"
+  Lessons:
+    - Optimizing Python (Overview): "pages/optimizing-python-overview/index.html"
+    - Optimizing Python (List Comprehension): "pages/optimizing-python-list-comprehension/index.html"
+  CCLA home: "https://www.doane.edu/center-for-computing-in-the-liberal-arts"
 
 # --- Logo --- #
 

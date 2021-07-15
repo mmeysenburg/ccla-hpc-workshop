@@ -4,6 +4,11 @@ title: Optimizing Python (List Comprehension)
 subtitle: Don't build a list with a for loop
 ---
 
+<!---
+-------------------------------------------------------------------------------
+Introduction section
+-------------------------------------------------------------------------------
+-->
 ## Introduction
 
 One of the fundamental data structures in Python is the list. Often,
@@ -19,6 +24,11 @@ the statistical work by creating a large Python list of pseudo-random numbers.
 The straightforward approach to this task is to create and empty list, and then 
 use a `for` loop to populate the list, as shown in the following code: 
 
+<!---
+-------------------------------------------------------------------------------
+Sample 1 - list comprehension with loop
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
 # Sample 1: Building a list with a for loop
 
@@ -29,6 +39,11 @@ for i in range(n):                 # part a
     values.append(random.random()) # part b
 {% endhighlight %}
 
+<!---
+-------------------------------------------------------------------------------
+Simple list comprehension section
+-------------------------------------------------------------------------------
+-->
 ## Simple list comprehension
 
 Python provides a mechanism for creating lists, called *list comprehension*, 
@@ -70,6 +85,11 @@ in a single line of Python code, rather than the three lines required
 in the `for` loop version, *and* our code will be faster than the 
 `for` loop version. Here is the equivalent code using list comprehension:
 
+<!---
+-------------------------------------------------------------------------------
+Sample 2 -- building the same list with list comprehension
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
 # Sample 2: building a similar list with comprehension
 
@@ -102,6 +122,11 @@ approximately 1.5 for each of the cases.
 can be a great way to get all of the numbers on an input line in a single
 list, with only one line of code, like this: `nums = [int(x) for x in input().split()]`.
 
+<!---
+-------------------------------------------------------------------------------
+Comprehension with an if section
+-------------------------------------------------------------------------------
+-->
 ## List comprehension with an `if`
 
 We can also use an `if` statement in list comprehension, to filter the elements
@@ -117,8 +142,13 @@ Like we did for Sample 1, we have labeled the three important parts of the
 code: the loop is `part a`, the if statement is `part b`, and adding
 to the list is done in `part c`. 
 
+<!---
+-------------------------------------------------------------------------------
+Sample 3 -- for loop to filter words
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
-# Sample 3: filtering words with list comprehension
+# Sample 3: filtering words 
 with open('dictionary.txt', 'r') as inFile:
     dict = [word[:-1] for word in inFile]
 
@@ -151,6 +181,11 @@ corresponds to `part b`.
 Sample 4 shows how we can build the same list in one line of Python
 code, using list comprehension with an `if`. 
 
+<!---
+-------------------------------------------------------------------------------
+Sample 4 -- same list with list comprehension
+-------------------------------------------------------------------------------
+-->
 {% highlight python linenos %}
 # Sample 4: filtering words with list comprehension
 with open('dictionary.txt', 'r') as inFile:
@@ -166,9 +201,15 @@ This creates an identical list as Sample 3, and is significantly
 faster. On our test system, creating the 'Q' word list with comprehension
 provided a speedup of 1.32, compared to the for loop version.
 
+<!---
+-------------------------------------------------------------------------------
+Comprehension with multiple fors section
+-------------------------------------------------------------------------------
+-->
 ## List comprehension with multiple `for`s
 
-List comprehension syntax with multiple `for`s:
+It is also possible to use multiple `for` statements in a list comprehension.
+Then syntax for list comprehension syntax with multiple `for`s is:
 
 ```pyhthon
 [<expression> for <v1> in <seq1> 
@@ -177,6 +218,12 @@ List comprehension syntax with multiple `for`s:
               ...
               if <condition>]
 ```
+
+We can have as many `for` portions as we wish, but only one `if`. To illustrate
+how this type of list comprehension works, consider this example, which creates
+a list of two-element tuples, based on two existing lists:
+
+
 
 Sample code showing how list comprehension with multiple `for` statements
 works:
