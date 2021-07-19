@@ -9,20 +9,25 @@ Cn = np.zeros((n, n))
 
 from timeit import default_timer as timer
 
-naiveStart = timer()
-for i in range(n):
-    for j in range(n):
-        for k in range(n):
-            Cn[i][j] += A[i][k] * B[k][j]
+naiveElapsed = 0
+for run in range(5):
+    naiveStart = timer()
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                Cn[i][j] += A[i][k] * B[k][j]
+    naiveStop = timer()
+    naiveElapsed += (naiveStop - naiveStart)
 
-naiveStop = timer()
+npElapsed = 0
+for run in range(5):
+    npStart = timer()
+    Cny = np.matmul(A, B)
+    npStop = timer()
+    npElapsed += (npStop - npStart)
 
-npStart = timer()
-Cny = np.matmul(A, B)
-npStop = timer()
-
-naiveElapsed = naiveStop - naiveStart
-npElapsed = npStop - npStart
+naiveElapsed /= 5
+npElapsed /= 5
 
 speedup = naiveElapsed / npElapsed
 
