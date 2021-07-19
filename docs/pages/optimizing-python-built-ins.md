@@ -14,7 +14,7 @@ Introduction section
 First and foremost when we are trying to make our Python code run faster, we should 
 focus on taking advantage of code that is already written for us. The base Python
 language has a wide variety of [built-in functions](https://docs.python.org/3/library/functions.html), 
-ranging from determine an absolute value with the `abs()` function to iterating
+ranging from determining an absolute value with the `abs()` function to iterating
 through several lists at the same time with the `zip()` function. Generally speaking,
 these built-in functions are implemented at a lower level in compiled C code, and are 
 significantly faster than doing the equivalent task ourselves in Python.
@@ -31,8 +31,8 @@ Sample 1 - finding min / max of a list, with Python code
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
-# assume values is a list containing floats
-# in [0, 1)
+# Sample 1: finding min / max of a list, native Python code
+# assume values is a list containing floats in [0, 1)
 minimum = 2.0
 maximum = -2.0
 for v in values:
@@ -63,6 +63,7 @@ Sample 2 - finding min / max of a list, with built-ins
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
+# Sample 2: finding min / max of a list, with built-ins
 mininum = min(values)
 maximum = max(values)
 {% endhighlight %}
@@ -145,6 +146,8 @@ Sample 3 -- matrix multiplication in native Python
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
+# Sample 3: matrix multiplication in native Python
+
 for i in range(n):
     for j in range(n):
         for k in range(n):
@@ -170,6 +173,8 @@ Sample 4 -- matrix multiplication using NumPy
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
+# Sample 4 -- matrix multiplication using NumPy
+
 Cny = np.matmul(A, B)
 {% endhighlight %}
 
