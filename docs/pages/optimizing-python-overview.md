@@ -30,8 +30,10 @@ create Python code that is almost as fast as the compiled equivalent, with the
 added advantage that we can write in Python instead of one of those harder-to-learn
 languages. 
 
-Our biggest bang-for-the-buck, optimization-wise, is to focus on loops. We 
+First and foremost, we should take advantage of the wide variety of functions that
+come built-in to the Python programming language. After than, 
+our biggest bang-for-the-buck, optimization-wise, is to focus on loops. We 
 will take advantage of several Python tips and tricks to speed up our loops,
 or to eliminate them entirely!
 
-Next up: [Optimizing Python (List Comprehension)](../optimizing-python-list-comprehension/index.html)
+First up: [Optimizing Python (Using Built-Ins)](../optimizing-python-built-ins/index.html)

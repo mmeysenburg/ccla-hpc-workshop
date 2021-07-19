@@ -26,7 +26,7 @@ use a `for` loop to populate the list, as shown in the following code:
 
 <!---
 -------------------------------------------------------------------------------
-Sample 1 - list comprehension with loop
+Sample 1 - list construction with loop
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
