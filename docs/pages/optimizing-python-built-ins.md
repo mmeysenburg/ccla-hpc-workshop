@@ -207,3 +207,131 @@ we should try to use well-tested, well-optimized code in Python libraries when p
 {: .box-warning}
 **Tip:** Whenever possible, use well-tested, well-documented Python libraries instead of
 writing "native" Python code. 
+
+## Exercise 1
+
+Another useful built-in functin in Python is `sum()`, which can be used to find the sum
+of the numbers in a list. Finish the code below to calculate the sum of a randomly-populated
+list using a native Python approach, and then again via the `sum()` function. 
+The code is instrumented via the `timeit` module to print out the time taken by 
+each approach, and it also verifies that the two answers received are the same. 
+Once you have written each version, feel free to vary the value of `n` to see how much
+time each version takes as the size of the list gets larger and larger.
+
+<!---
+-------------------------------------------------------------------------------
+Exercise 1 - summing values
+-------------------------------------------------------------------------------
+-->
+{% highlight python linenos %}
+# Exercise 1 - summing values
+
+from timeit import default_timer as timer
+import random
+
+# list size
+n = 100000
+
+# create randomly-populated list
+values = [random.randrange(1000) for i in range(n)]
+
+# part 1: write native Python to sum the list,
+# using the accumulator pattern; store the sum
+# in the variable named nativeSum
+nativeStart = timer()
+
+nativeSum = 0
+# your code here
+
+
+nativeStop = timer()
+
+# part 2: find sum via built-in; store the sum
+# in the variable named biSum
+biStart = timer()
+
+biSum = 0
+# your code here
+
+biStop = timer()
+
+print('Native time elapsed:', nativeStop - nativeStart)
+print('Built-in time elapsed:', biStart - biStop)
+
+if nativeSum == biSum:
+    print('Sums are equal')
+else:
+    print('SUMS WERE NOT THE SAME')
+{% endhighlight %}
+
+## Exercise 2
+
+Computer images are often stored in *24-bit, Red/Green/Blue (RGB)* format,
+where each pixel is a triple of numbers, each in the closed range [0, 255],
+representing the relative intensity of the red, green, and blue colors
+for the pixel. For example, a triple (255, 0, 0) is red, because it has
+full intensity in the red channel and none in the green or blue channels.
+Similarly, (0, 255, 0) is pure green and (0, 0, 255) is pure blue. 
+In this color model, (255, 255, 255) represents white and (0, 0, 0) 
+represents black. 
+
+This is not the only way to specify RGB values, however. Often, when we
+perform image processing, we would prefer to indicate the intensity of each
+channel with a floating-point number in [0, 1]. Representing images this
+way allows us to perform numerous operations on them in a more numerically
+stable way. 
+
+The code below loads this color image into a 3-dimensional NumPy array named
+`image`.
+
+![Maize root image](https://i.imgur.com/gpLmzNk.png)
+
+The
+first layer represents the red channel, while the second is the green
+channel, and the third layer is the blue channel. Each value is an integer
+in [0, 255]. The image is 800 pixels wide by 800 pixels high.
+
+To normalize the image would not be too hard to do. We would have three nested
+loops, similar to the native matrix multiplication code we had above in 
+Sample 3, perhaps something like this:
+
+{% highlight python linenos %}
+for i in range(image.shape[0]):
+  for j in range(image.shape[1]):
+    for k in range(image.shape[2]):
+      newImage[i][j][k] = image[i][j][k] / 255.0
+{% endhighlight %}
+
+Given our experience with the natively-coded matrix multiplication code
+above, we would expect that this natively-coded normalization code 
+would be unacceptably slow. That expectation is correct; on our test system,
+normalizing in this way took nearly 4 seconds. 
+
+But, we can take advantage of the capabilities of the NumPy library to 
+perform the same task more quickly, and with only one line of code. 
+Do a little online research to see how to divide all of the elements of
+a NumPy array by a scalar value, and then complete the code below by
+finishing the indicated line. 
+
+<!---
+-------------------------------------------------------------------------------
+Exercise 2 - normalizing an image
+-------------------------------------------------------------------------------
+-->
+{% highlight python linenos %}
+import skimage.io
+import numpy as np
+
+# loads the image
+image = skimage.io.imread('https://i.imgur.com/gpLmzNk.png')
+print('values in image:')
+print(image)
+
+# normalize the image by dividing each
+# value by 255; store in variable named
+# newImage
+newImage = # finish code here
+
+print('values in new image:')
+print(newImage)
+{% endhighlight %}
