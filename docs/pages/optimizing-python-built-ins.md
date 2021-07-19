@@ -88,7 +88,10 @@ version.
 So, it makes good sense to keep the 70 or so Python built-in functions close at hand, mentally,
 when we write code. If we can utilize these functions in our code, not only will we 
 have less code to write, our code will almost certainly be faster if we use built-ins
-than if we accomplish the same task with native Python code. 
+than if we accomplish the same task with native Python code.
+
+{: .box-warning}
+**Tip:** Whenever possible, use built-in Python functions instead of writing "native" Python code. 
 
 ## Second example: matrix multiplication
 
@@ -153,7 +156,7 @@ the thrice-nested loops in Sample 3 probably give you pause. Since each loop
 iterates *n* times, the overall *time complexity* of this algorithm is on the order
 of *n<sup>3</sup>*, which is not good. Computationally, matrix multiplication is 
 expensive, and running the code from Sample 3 bears this out. On our test system,
-multiplying two 1000 by 1000 matrices took, on average, approximately ???? seconds
+multiplying two 1000 by 1000 matrices took, on average, approximately 875 seconds
 to complete. 
 
 We cannot do much to decrease the *n<sup>3</sup>* time complexity of matrix multiplication,
@@ -177,5 +180,25 @@ errors into their code than we would be if we were forced to come up with
 Sample 3 on our own.
 
 The real difference between Sample 3 and Sample 4 becomes apparent when we compare
-the run times, as shown on this plot:
+the run times. Whereas the native Python code took 875 seconds to multiply two 
+1000 by 1000 matrices, the NumPy equivalent took around *1.39 seconds*. The run times
+for a variety of matrix sizes from 100 to 1000 is shown in this plot:
 
+![Manual vs. NumPy matrix multiplication](../../assets/img/built-in-mm-comp.png)
+
+If you look very closely at the plot, you can just barely see the curve 
+representing matrix multiplication with NumPy -- the native Python version 
+takes so much more time that the NumPy line barely registers!
+
+We did not draw the speedup line on the previous plot, but here it is on its
+own:
+
+![Manual vs. NumPy matrix multiplication speedup](../../assets/img/built-in-mm-speedup.png)
+
+We can see that the speedup is more variable than we have seen previously, but it seems
+that a speedup on the order of 1000 is reasonable to expect for this code! Accordingly,
+we should try to use well-tested, well-optimized code in Python libraries when possible.
+
+{: .box-warning}
+**Tip:** Whenever possible, use well-tested, well-documented Python libraries instead of
+writing "native" Python code. 

@@ -13,7 +13,7 @@ Speedup is a measure of how well we have improved the runtime of our code. If
 T<sub>0</sub> is the time taken by the original code, and T<sub>1</sub> is the
 time taken by the improved code, then speedup is defined as 
 
-![Speedup](../../assets/img/speedup.png)
+![Speedup](./assets/img/speedup.png)
 
 A speedup of 2 would mean that our optimized code is twice as fast as 
 the original, while any value under 1 would mean that we actually 
