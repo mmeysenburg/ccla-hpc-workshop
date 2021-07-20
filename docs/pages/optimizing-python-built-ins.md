@@ -77,7 +77,7 @@ faster in execution than Sample 1, as shown in this plot:
 
 ![Native Python vs. built-in min / max](../../assets/img/built-in.png)
 
-We can see that the speedup caused by using the built-in `min()` and `max()` functions
+We can see that the [speedup](#speedup) caused by using the built-in `min()` and `max()` functions
 is roughly four, meaning that Sample 2 is approximately four times faster than the 
 native Python version shown in Sample 1. To make this even more interesting, consider that
 the loop in Sample 1 goes through the list only one time, while the built-in functions
@@ -96,15 +96,15 @@ than if we accomplish the same task with native Python code.
 
 ## Second example: matrix multiplication
 
-Python is known for its ease of use and for the numerous *modules* that can be
+Python is known for its ease of use and for the numerous *modules* and *libraries* that can be
 imported for just about any problem domain, as this tongue-in-cheek 
 [xkcd](https://xkcd.com/) comic illustrates:
 
 ![Xkcd Python comic](https://imgs.xkcd.com/comics/python.png)
 
 The standard distribution of Python alone contains over 200 modules, and there are
-something like 137,000 other modules available to be installed and used by 
-Python programmers. We cannot vouch for the quality of all 137,000 modules, 
+something like 137,000 other libraries available to be installed and used by 
+Python programmers. We cannot vouch for the quality of all 137,000 libraries, 
 but the odds are pretty good that there is a module already written to do some or
 all of the problem you are trying to solve. Many of these modules have the extra 
 benefit of being implemented in low-level C code, meaning that they are very
@@ -158,7 +158,7 @@ If you have studied computer science, particularly in the analysis of algorithms
 the thrice-nested loops in Sample 3 probably give you pause. Since each loop 
 iterates *n* times, the overall *time complexity* of this algorithm is on the order
 of *n<sup>3</sup>*, which is not good. Computationally, matrix multiplication is 
-expensive, and running the code from Sample 3 bears this out. On our test system,
+expensive, and running the code from Sample 3 bears this out. On our [test system](#speedup),
 multiplying two 1000 by 1000 matrices took, on average, approximately 875 seconds
 to complete. 
 
@@ -186,7 +186,7 @@ Sample 3 on our own.
 
 The real difference between Sample 3 and Sample 4 becomes apparent when we compare
 the run times. Whereas the native Python code took 875 seconds to multiply two 
-1000 by 1000 matrices, the NumPy equivalent took around *1.39 seconds*. The run times
+1000 by 1000 matrices, the NumPy equivalent took around 1.39 seconds. The run times
 for a variety of matrix sizes from 100 to 1000 is shown in this plot:
 
 ![Manual vs. NumPy matrix multiplication](../../assets/img/built-in-mm-comp.png)
@@ -278,20 +278,29 @@ represents black.
 This is not the only way to specify RGB values, however. Often, when we
 perform image processing, we would prefer to indicate the intensity of each
 channel with a floating-point number in [0, 1]. Representing images this
-way allows us to perform numerous operations on them in a more numerically
-stable way. 
+way allows us to perform computations on them in a more [numerically
+stable](https://mathworld.wolfram.com/NumericalStability.html#:~:text=Numerical%20stability%20refers%20to%20how,effect%20on%20the%20final%20output.) way. 
 
-The code below loads this color image into a 3-dimensional NumPy array named
-`image`.
+The code below loads a color image of some Maize seedlings from the Web into a 3-dimensional 
+NumPy array named `image`.
 
 ![Maize root image](https://i.imgur.com/gpLmzNk.png)
 
+{% highlight python linenos %}
+import skimage.io
+import numpy as np
+
+# loads the image
+image = skimage.io.imread('https://i.imgur.com/gpLmzNk.png')
+{% endhighlight %}
+
 The
-first layer represents the red channel, while the second is the green
+first layer of the array represents the red channel, while the second is the green
 channel, and the third layer is the blue channel. Each value is an integer
 in [0, 255]. The image is 800 pixels wide by 800 pixels high.
 
-To normalize the image would not be too hard to do. We would have three nested
+Converting the values in the image to the range [0, 1] would not be too hard to do. 
+We would have three nested
 loops, similar to the native matrix multiplication code we had above in 
 Sample 3, perhaps something like this:
 
@@ -303,9 +312,9 @@ for i in range(image.shape[0]):
 {% endhighlight %}
 
 Given our experience with the natively-coded matrix multiplication code
-above, we would expect that this natively-coded normalization code 
+above, we would expect that this natively-coded code 
 would be unacceptably slow. That expectation is correct; on our test system,
-normalizing in this way took nearly 4 seconds. 
+converting the pixels in this way took nearly 4 seconds. 
 
 But, we can take advantage of the capabilities of the NumPy library to 
 perform the same task more quickly, and with only one line of code. 
@@ -327,7 +336,7 @@ image = skimage.io.imread('https://i.imgur.com/gpLmzNk.png')
 print('values in image:')
 print(image)
 
-# normalize the image by dividing each
+# convert the image's pixels by dividing each
 # value by 255; store in variable named
 # newImage
 newImage = # finish code here
@@ -335,3 +344,24 @@ newImage = # finish code here
 print('values in new image:')
 print(newImage)
 {% endhighlight %}
+
+---
+
+### Speedup <a name="speedup"></a>
+
+We refer to *speedup* as a way
+to compare our optimized code with its original, slower counterpart.
+Speedup is a measure of how well we have improved the runtime of our code. If 
+*T<sub>0</sub>* is the time taken by the original code, and *T<sub>1</sub>* is the
+time taken by the improved code, then speedup is defined as 
+
+![Speedup](../../assets/img/speedup.png)
+
+A speedup of 2 would mean that our optimized code is twice as fast as 
+the original, while any value under 1 would mean that we actually 
+made our code slower!
+
+All performance figures on this page were obtained on
+a Windows 10 PC with an Intel&reg; Core&trade; i5-9600K CPU @ 3.70GHz
+and 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
+Subsystem for Linux environment. 

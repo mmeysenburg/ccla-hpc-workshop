@@ -109,7 +109,7 @@ we executed Sample 1 and Sample 2 for values of `n` ranging from
 for each trial. 
 
 Here is a plot showing the runtimes from our trials, as well as the 
-speedup for each. 
+[speedup](#speedup) for each. 
 
 ![Loop vs. comprehension](../../assets/img/list-comprehension-time.png)
 
@@ -335,3 +335,23 @@ Your output might look like this:
   9:    10028
  10:    10050
  ```
+---
+
+### Speedup <a name="speedup"></a>
+
+We refer to *speedup* as a way
+to compare our optimized code with its original, slower counterpart.
+Speedup is a measure of how well we have improved the runtime of our code. If 
+*T<sub>0</sub>* is the time taken by the original code, and *T<sub>1</sub>* is the
+time taken by the improved code, then speedup is defined as 
+
+![Speedup](../../assets/img/speedup.png)
+
+A speedup of 2 would mean that our optimized code is twice as fast as 
+the original, while any value under 1 would mean that we actually 
+made our code slower!
+
+All performance figures on this page were obtained on
+a Windows 10 PC with an Intel&reg; Core&trade; i5-9600K CPU @ 3.70GHz
+and 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
+Subsystem for Linux environment. 
