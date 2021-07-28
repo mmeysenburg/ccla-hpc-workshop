@@ -147,6 +147,21 @@ coordinates for a point with a negative *x* and positive *y* value.
 
 ![Cartesian coordinates](../../assets/img/cartesian.png)
 
+In some mathematical, physics, and computing applications, we often would rather work 
+with [polar coordinates](https://mathworld.wolfram.com/PolarCoordinates.html), where
+the coordinate is specified by the angle from the rightward facing axis and the 
+distance from the point to (0, 0). This figure shows the polar coordinate equivalent
+of the point in the previous image:
+
+![Polar coordinates](../../assets/img/polar.png)
+
+The sample code below creates a large list of randomly-generated Cartesian points
+in the unit square, i.e., each point is in *[1, 1]*. Look up how to convert 
+Cartesian coordinates to polar, and then write code to produce a new list containing
+*(r, &#920;)* polar coordinates for each of the Cartesian points in the list
+named `cartesians`. Use list comprehension and aliases to make the code work
+faster. 
+
 <!---
 -------------------------------------------------------------------------------
 Exercise 2 - convert cartesian coordinates to polar
