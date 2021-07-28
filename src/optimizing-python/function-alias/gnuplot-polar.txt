@@ -11,6 +11,20 @@ unset border
 unset xtics
 unset ytics
 
+x = -0.51
+y = 0.63
+
+set arrow 1 from 0,0 to 1, 0
+set arrow 2 from 0,0 to -1,0 nohead
+set arrow 3 from 0,0 to 0, 1 nohead
+set arrow 4 from 0,0 to 0, -1 nohead
+set arrow 5 from 0,0 to x,y 
+
+set label "r = 0.81" at -0.5, 0.4
+
+set object 1 circle at 0,0 arc [0:128.9] size 0.3 fc rgb "black" lw 1 dt "."
+
+set label "{/Symbol Q} = 2.25" at 0.25, 0.2
+
 set parametric
-set polar
-plot 0.81,2.25 with points pointtype 7 notitle
+plot x, y with points pointtype 7 notitle
