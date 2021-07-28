@@ -1,0 +1,16 @@
+set term pngcairo size 1000,1000
+set output "polar.png"
+xmax = 1.0
+xmin = -1.0
+ymax = 1.0
+ymin = -1.0
+set xrange[xmin:xmax]
+set yrange[ymin:ymax]
+
+unset border
+unset xtics
+unset ytics
+
+set parametric
+set polar
+plot 0.81,2.25 with points pointtype 7 notitle
