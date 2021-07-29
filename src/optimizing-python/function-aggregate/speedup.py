@@ -9,7 +9,7 @@ with open('fa01.txt', 'r') as inFile:
         orig.append((int(tokens[0]), float(tokens[1])))
 
 spedup = []
-with open('fa02.txt', 'r') as inFile:
+with open('fa04.txt', 'r') as inFile:
     for line in inFile:
         tokens = line.split(',')
         spedup.append((int(tokens[0]), float(tokens[1])))

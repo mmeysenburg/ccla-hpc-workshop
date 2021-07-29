@@ -1,0 +1,8 @@
+set terminal pngcairo size 1000, 1000
+set output "function-aggregate.png"
+set autoscale
+set title "Aggregate functions"
+set xlabel "n"
+set ylabel "Time (s)"
+set datafile separator ","
+plot "fa01.txt" with lines title "no agg.", "fa02.txt" with lines title "agg.", "fa03.txt" with lines title "agg. w/ aliases", "fa04.txt" with lines title "agg. w/ aliases, no pow.", "speedup.txt" with lines title "speedup"

@@ -15,7 +15,7 @@ def euclideanToPolar(point):
     -------
         tuple with (theta, r) coordinate
     '''
-    theta = math.atan2(point[1], point[0])
+    theta = math.atan(point[1] / point[0])
     r = math.sqrt(point[0] ** 2 + point[1] ** 2)
     return (theta, r)
 

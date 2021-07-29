@@ -15,7 +15,7 @@ def euclideanToPolar(points):
     -------
         list of tuples with (theta, r) coordinate
     '''
-    return [(math.atan2(point[1], point[0]), math.sqrt(point[0] ** 2 + point[1] ** 2))
+    return [(math.atan(point[1] / point[0]), math.sqrt(point[0] ** 2 + point[1] ** 2))
         for point in points]
 
 n = int(sys.argv[1])
