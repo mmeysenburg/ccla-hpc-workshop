@@ -19,6 +19,7 @@ navbar-links:
     - Optimizing Python (Using Built-Ins): "pages/optimizing-python-built-ins/index.html"
     - Optimizing Python (List Comprehension): "pages/optimizing-python-list-comprehension/index.html"
     - Optimizing Python (Using Aliases): "pages/optimizing-python-function-alias/index.html"
+    - Optimizing Python (Aggregate Functions): "pages/optimizing-python-function-aggregate/index.html"    
   CCLA home: "https://www.doane.edu/center-for-computing-in-the-liberal-arts"
 
 # --- Logo --- #
