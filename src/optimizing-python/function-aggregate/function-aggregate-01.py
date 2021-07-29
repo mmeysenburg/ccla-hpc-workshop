@@ -3,9 +3,9 @@ import random
 import sys
 from timeit import default_timer as timer
 
-def euclideanToPolar(point):
+def cartesianToPolar(point):
     '''
-    Convert a Euclidean point to polar coordinates.
+    Convert a Cartesian point to polar coordinates.
 
     parameter
     ---------
@@ -26,9 +26,9 @@ for trial in range(5):
     euclideans = [(random.random(), random.random()) for i in range(n)]
 
     startTime = timer()
-    polars = [euclideanToPolar(p) for p in euclideans]
+    polars = [cartesianToPolar(p) for p in euclideans]
     stopTime = timer()
 
     elapsed += (stopTime - startTime)
 
-print('{0:d},{1:f}'.format(n, elapsed))
+print('{0:d},{1:f}'.format(n, elapsed / 5))
