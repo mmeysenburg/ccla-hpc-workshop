@@ -135,9 +135,7 @@ in Sample 1.
 other object in a module, and you are doing so *inside a loop*, consider using
 an alias to improve your code's performance. 
 
-## Exercise 1
-
-## Exercise 2
+## Exercise 
 
 You are probably familiar with the 
 [Cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system),
@@ -164,12 +162,12 @@ faster.
 
 <!---
 -------------------------------------------------------------------------------
-Exercise 2 - convert cartesian coordinates to polar
+Exercise - convert cartesian coordinates to polar
 -------------------------------------------------------------------------------
 -->
 {% highlight python linenos %}
 '''
-Function alias exercise 2
+Function alias exercise 
 
 Convert cartesian coordinates to polar.
 '''
