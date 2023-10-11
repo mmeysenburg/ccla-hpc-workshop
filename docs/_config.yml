@@ -14,12 +14,6 @@ author: Mark M. Meysenburg
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  Lessons:
-    - Optimizing Overview: "pages/optimizing-python-overview/index.html"
-    - Optimizing Using Built-Ins: "pages/optimizing-python-built-ins/index.html"
-    - Optimizing List Comprehension: "pages/optimizing-python-list-comprehension/index.html"
-    - Optimizing Using Aliases: "pages/optimizing-python-function-alias/index.html"
-    - Optimizing Aggregate Functions: "pages/optimizing-python-function-aggregate/index.html"    
   CCLA home: "https://web.doane.edu/colleges-divisions-programs/institute-for-computing/center-computing-liberal-arts"
 
 # --- Logo --- #
