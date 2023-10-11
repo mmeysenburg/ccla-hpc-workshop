@@ -31,4 +31,6 @@ will be posted as more content is added to the site.
 
 ![Under Construction](./assets/img/UNDER_CONSTRUCTION_ICON.png)
 
+---
+
 # Blog posts
