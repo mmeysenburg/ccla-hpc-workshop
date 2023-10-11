@@ -25,8 +25,10 @@ will be posted as more content is added to the site.
 
 ## How to utilize automatic multi-core parallelism using OpenMP
 
-![Under Construction](../../assets/img/UNDER_CONSTRUCTION.png)
+![Under Construction](../../assets/img/UNDER_CONSTRUCTION_ICON.png)
 
 ## How to begin to write distributed parallel code to run on supercomputers, using OpenMPI
 
-![Under Construction](../../assets/img/UNDER_CONSTRUCTION.png)
+![Under Construction](../../assets/img/UNDER_CONSTRUCTION_ICON.png)
+
+# Blog posts
