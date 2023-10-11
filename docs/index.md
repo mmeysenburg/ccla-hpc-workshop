@@ -18,10 +18,10 @@ will be posted as more content is added to the site.
 ## How make your Python code run faster
 
 1. [Optimizing Python code overview](./pages/optimizing-python-overview/index.html)
-2. [Using built-in functions](../pages/optimizing-python-built-ins/index.html)
-3. [List comprehension](../pages/optimizing-python-list-comprehension/index.html)
-4. [Using aliases](../pages/optimizing-python-function-alias/index.html)
-5. [Aggregate functions](../pages/optimizing-python-function-aggregate/index.html)
+2. [Using built-in functions](./pages/optimizing-python-built-ins/index.html)
+3. [List comprehension](./pages/optimizing-python-list-comprehension/index.html)
+4. [Using aliases](./pages/optimizing-python-function-alias/index.html)
+5. [Aggregate functions](./pages/optimizing-python-function-aggregate/index.html)
 
 ## How to utilize automatic multi-core parallelism using OpenMP
 
