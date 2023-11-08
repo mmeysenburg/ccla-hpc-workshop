@@ -155,7 +155,7 @@ with open('dictionary.txt', 'r') as inFile:
 Qs = []
 # make a sublist of only words that start with 'Q'
 for word in dict:        # part a
-    if word[:1] == 'Q':  # part b
+    if word[0] == 'Q':  # part b
         Qs.append(word)  # part c
 
 print(Qs)
@@ -192,7 +192,7 @@ with open('dictionary.txt', 'r') as inFile:
     dict = [word[:-1] for word in inFile]
 
 # make a sublist of only words that start with 'Q'
-Qs = [word for word in dict if word[:1] == 'Q']
+Qs = [word for word in dict if word[0] == 'Q']
 
 print(Qs)
 {% endhighlight %}
