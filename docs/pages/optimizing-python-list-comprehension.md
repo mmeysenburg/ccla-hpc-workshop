@@ -68,7 +68,7 @@ as shown here:
 ```
 
 Here, `<expression>` corresponds to `part b`, while `for <v1> in <seq1>`
-corresponds to `part b`. Essentially, the body of the `for` loop is 
+corresponds to `part a`. Essentially, the body of the `for` loop is 
 specified first, and the `for` loop information itself is specified
 second. 
 
