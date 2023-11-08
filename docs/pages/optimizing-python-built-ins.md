@@ -365,3 +365,7 @@ All performance figures on this page were obtained on
 a Windows 10 PC with an Intel&reg; Core&trade; i5-9600K CPU @ 3.70GHz
 and 32GB of RAM, in Python 3.6.9 running in an Ubuntu Windows
 Subsystem for Linux environment. 
+
+### Next lesson
+
+The next lesson in the workshop is about [List Comprehension](../optimizing-python-list-comprehension/index.html)
