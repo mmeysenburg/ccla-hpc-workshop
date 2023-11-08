@@ -358,4 +358,4 @@ Subsystem for Linux environment.
 
 ### Next lesson
 
-The next lesson in the workshop is about [using aliases](../optimizing-python-using-aliases/index.html)
+The next lesson in the workshop is about [using aliases](../optimizing-python-function-alias/index.html)
