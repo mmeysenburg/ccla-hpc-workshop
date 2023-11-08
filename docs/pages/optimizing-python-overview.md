@@ -31,7 +31,7 @@ added advantage that we can write in Python instead of one of those harder-to-le
 languages. 
 
 First and foremost, we should take advantage of the wide variety of functions that
-come built-in to the Python programming language. After than, 
+come built-in to the Python programming language. After that, 
 our biggest bang-for-the-buck, optimization-wise, is to focus on loops. We 
 will take advantage of several Python tips and tricks to speed up our loops,
 or to eliminate them entirely!
