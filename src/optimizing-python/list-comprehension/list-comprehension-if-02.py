@@ -9,7 +9,7 @@ with open('dictionary.txt', 'r') as inFile:
 
 startTime = timer()
 # make a sublist of only words that start with 'Q'
-Qs = [word for word in dict if word[:1] == 'Q']
+Qs = [word for word in dict if word[0] == 'Q']
 stopTime = timer()
 
 print(stopTime - startTime)
