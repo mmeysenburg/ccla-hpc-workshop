@@ -11,7 +11,7 @@ startTime = timer()
 Qs = []
 # make a sublist of only words that start with 'Q'
 for word in dict:
-    if word[:1] == 'Q':
+    if word[0] == 'Q':
         Qs.append(word)
 stopTime = timer()
 
