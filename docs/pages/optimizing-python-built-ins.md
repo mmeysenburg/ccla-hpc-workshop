@@ -288,9 +288,7 @@ NumPy array named `image`.
 
 {% highlight python linenos %}
 !git clone https://github.com/mmeysenburg/divasii-imgs.git
-{% endhighlight %}
 
-{% highlight python linenos %}
 import skimage.io
 import numpy as np
 
