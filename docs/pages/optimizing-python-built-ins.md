@@ -287,11 +287,15 @@ NumPy array named `image`.
 ![Maize root image](https://i.imgur.com/gpLmzNk.png)
 
 {% highlight python linenos %}
+!git clone https://github.com/mmeysenburg/divasii-imgs.git
+{% endhighlight %}
+
+{% highlight python linenos %}
 import skimage.io
 import numpy as np
 
 # loads the image
-image = skimage.io.imread('https://i.imgur.com/gpLmzNk.png')
+image = skimage.io.imread('divasii-imgs/maize.png')
 {% endhighlight %}
 
 The
@@ -332,7 +336,7 @@ import skimage.io
 import numpy as np
 
 # loads the image
-image = skimage.io.imread('https://i.imgur.com/gpLmzNk.png')
+image = skimage.io.imread('divasii-imgs/maize.png')
 print('values in image:')
 print(image)
 
