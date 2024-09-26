@@ -98,7 +98,7 @@ import random
 values = [random.random() for i in range(n)]
 {% endhighlight %}
 
-Line 2 of this code does all the work. Here, `random.random()` is the
+Line 5 of this code does all the work. Here, `random.random()` is the
 `<expression>`, a.k.a. `part b`, `i` is `<v1>`, and `range(n)` 
 is `<seq1>`. Note that in this case, the expression `random.random()`
 does not depend at all on the loop variable `i`. 
